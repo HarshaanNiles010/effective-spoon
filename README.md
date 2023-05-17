@@ -26,9 +26,3 @@ When this robot is run, it should:
 ## Bonus
 What other nifty features can you add to your robot? This is not required but is an
 opportunity for you to have fun with your code and show your creativity.
-
-
-## Submission
-When you've completed the task, please email your project in a zip folder to 
-jamieson@quandri.io with the subject line: `Robotic Researcher - Quandri Backend Python 
-Interview`
