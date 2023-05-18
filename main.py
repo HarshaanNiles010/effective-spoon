@@ -23,46 +23,6 @@ def introduce_yourself():
 def explain_yourself():
     robot.explain()
 
-""" def find_information(name):
-    driver = webdriver.Chrome()
-    driver.get(
-        f"https://en.wikipedia.org/wiki/{name.replace(' ','_')}")
-    try:
-        birth_date_el = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located(
-                (By.CSS_SELECTOR,"span.bday"))
-            )
-        birth_date = birth_date_el.get_attribute("innerText")
-        
-        death_date_el = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located(
-                (By.XPATH,"//th[contains(text(), 'Died')]/following-sibling::td//span"))
-            )
-        
-        death_date = death_date_el.get_attribute("innerText").replace("(","").replace(")","")
-        
-        born = datetime.strptime(birth_date, '%Y-%m-%d')
-        died = datetime.strptime(death_date,'%Y-%m-%d')
-        age = int((died - born).days/365.25)
-        
-        summary = WebDriverWait(driver,10).until(
-            EC.presence_of_element_located(
-                (By.XPATH,"(//div[@id='mw-content-text']/div/p[not(@class='mw-empty-elt')])[1]"))
-            ).text
-        
-        scientist_info = {
-                "Name": name,
-                "Birth Date": birth_date,
-                "Death Date": death_date,
-                "Age": age,
-                "Summary": summary
-            }  
-        for key, value in scientist_info.items():
-                print(f"{key}: {value}")
-                
-    except TimeoutException as e:
-        raise CustomException(e,sys)
-        """
 def main():
     robot = Robot("Quandrinaut")
     introduce_yourself()
