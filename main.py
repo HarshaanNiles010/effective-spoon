@@ -1,6 +1,8 @@
+import sys
 from robotics import Robot
 from selenium import webdriver
 from datetime import datetime
+from exception import CustomException
 from RPA.Browser.Selenium import Selenium as ChromeBrowser
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait
@@ -21,8 +23,7 @@ def introduce_yourself():
 def explain_yourself():
     robot.explain()
 
-def find_information(name):
-    print(name)
+""" def find_information(name):
     driver = webdriver.Chrome()
     driver.get(
         f"https://en.wikipedia.org/wiki/{name.replace(' ','_')}")
@@ -59,14 +60,14 @@ def find_information(name):
         for key, value in scientist_info.items():
                 print(f"{key}: {value}")
                 
-    except Exception as e:
-        print(f"An error occured while process {name}: {e}")
-        
+    except TimeoutException as e:
+        raise CustomException(e,sys)
+        """
 def main():
     robot = Robot("Quandrinaut")
     introduce_yourself()
     for scientist in SCIENTISTS:
-        find_information(scientist)
+        robot.lookup(scientist,1)
 
 
 if __name__ == "__main__":
